@@ -23,7 +23,7 @@ public class BasicItemController {
     public String items(Model model){
         List<Item> items = itemRepository.findAll();
         model.addAttribute("items", items);
-        return "basic/item";
+        return "basic/items";
     }
 
     // 테스트용 데이터 추가
