@@ -11,7 +11,7 @@ import java.util.Map;
 public class ItemRepository {
 
     private static final Map<Long, Item> store = new HashMap<>(); // static 사용 // 실제로는 HashMap 사용하면 안된다.
-    private static long sequence = 1L; // static
+    private static Long sequence = 1L; // static
 
     public Item save(Item item) {
         item.setId(sequence++);
