@@ -89,6 +89,11 @@ public class BasicItemController {
         return "basic/editForm";
     }
 
+    @PostMapping("/{itemId}/edit")
+    public String edit(@PathVariable(name = "itemId") Long itemId, Model model) {
+        return "xx";
+    }
+
     // 테스트용 데이터 추가
     @PostConstruct
     public void init() {
