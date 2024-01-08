@@ -90,8 +90,9 @@ public class BasicItemController {
     }
 
     @PostMapping("/{itemId}/edit")
-    public String edit(@PathVariable(name = "itemId") Long itemId, Model model) {
-        return "xx";
+    public String edit(@PathVariable(name = "itemId") Long itemId, @ModelAttribute Item item) {
+        itemRepository.update(itemId, item);
+        return "redirect:/basic/items/{itemId}";
     }
 
     // 테스트용 데이터 추가
