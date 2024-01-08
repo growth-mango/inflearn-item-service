@@ -55,7 +55,7 @@ public class BasicItemController {
         return "basic/item";
     }
 
-    @PostMapping("/add")
+    //@PostMapping("/add")
     // ModelAttribute : Model 객체 만들어주기 , Model에 넣어주는 두 가지 역할을 모두 수행한다.
     public String addItemV2(@ModelAttribute("item") Item item) {
 
@@ -63,6 +63,21 @@ public class BasicItemController {
 
 //        model.addAttribute("item", item); // 자동 추가 되기 때문에 생략 가능하다.
 
+        return "basic/item";
+    }
+
+    //@PostMapping("/add")
+    // ModelAttribute Name을 넣지 않으면 기본적으로 클래스명의 앞을 소문자로 바꿔 넣어준다!
+    // 즉 @ModelAttribute("item")과 같은 것!
+    public String addItemV3(@ModelAttribute Item item) {
+        itemRepository.save(item);
+        return "basic/item";
+    }
+
+    @PostMapping("/add")
+    // @ModelAttribute 자체 생략이 가능해버린다!!!!
+    public String addItemV4(Item item) {
+        itemRepository.save(item);
         return "basic/item";
     }
 
