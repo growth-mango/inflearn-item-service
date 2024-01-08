@@ -38,10 +38,10 @@ public class BasicItemController {
     }
 
     // @PostMapping("/add")
-    public String addItemV1(@RequestParam(name="itemName") String itemName,
-                       @RequestParam(name="price") int price,
-                       @RequestParam(name="quantity") Integer quantity,
-                       Model model){
+    public String addItemV1(@RequestParam(name = "itemName") String itemName,
+                            @RequestParam(name = "price") int price,
+                            @RequestParam(name = "quantity") Integer quantity,
+                            Model model) {
 
         Item item = new Item();
         item.setItemName(itemName);
@@ -79,6 +79,14 @@ public class BasicItemController {
     public String addItemV4(Item item) {
         itemRepository.save(item);
         return "basic/item";
+    }
+
+    // 상품 수정
+    @GetMapping("/{itemId}/edit")
+    public String editForm(@PathVariable(name = "itemId") Long itemId, Model model) {
+        Item item = itemRepository.findById(itemId);
+        model.addAttribute("item", item);
+        return "basic/editForm";
     }
 
     // 테스트용 데이터 추가
