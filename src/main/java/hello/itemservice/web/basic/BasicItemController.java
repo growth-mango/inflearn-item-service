@@ -34,6 +34,7 @@ public class BasicItemController {
         return "basic/item";
     }
 
+    // 상품 등록 (폼 열기 - 폼 불러오기)
     @GetMapping("/add")
     public String addForm() {
         return "basic/addForm";
@@ -89,6 +90,7 @@ public class BasicItemController {
         return "redirect:/basic/items/" + item.getId();
     }
 
+    // 상품 등록 (저장)
     @PostMapping("/add")
     public String addItemV6(Item item, RedirectAttributes redirectAttributes) {
         Item savedItem = itemRepository.save(item);
